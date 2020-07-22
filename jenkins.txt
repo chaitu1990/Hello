@@ -1,0 +1,30 @@
+int workspace
+node
+{
+    stage ('checkout code')
+    {
+    
+    }
+    stage ('code Analysis')
+    {
+       build job: 'code Analysis', parameters: [string(name: 'Workspace', value: '')] 
+    }
+    stage ('code compile')
+    {
+      build job: 'code compile', parameters: [string(name: 'workspace', value: '')]  
+    }
+    stage ('code unit test')
+    
+    {
+      build job: 'code unit test', parameters: [string(name: 'workspace', value: '')]  
+    }
+    stage ('Code package')
+    {
+       
+    }
+    stage ('Code Deploy')
+    {
+       build job: 'Code deploy', parameters: [string(name: 'workspace', value: '')] 
+    }
+}
+
